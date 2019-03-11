@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Modal</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/modal.js" type="text/babel"></script>
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+
+<div align="center">
+    <h1>Modal</h1>
+</div>
+
+
+<button type="button" data-modal="modal">Open Modal</button>
+<div id="modal-div">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <script type="text/babel">
+        const modal = new Modal('modal-div', 'modal');
+        modal.size();
+        modal.colorHeader('rgba(109, 190, 103, 1)', '#fff');
+        modal.colorBody('rgba(255, 255, 255, 1)', '#000');
+        modal.colorFooter();
+        modal.borderRadius();
+        modal.divisions();
+        modal.html();
+        modal.create();
+    </script>
+</div>
+
+
+</body>
+</html>
