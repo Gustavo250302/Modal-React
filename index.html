@@ -17,6 +17,10 @@
     <h1>Modal</h1>
 </div>
 
+    <button type="button" data-modal="modal-1">Open Modal</button>
+    <div id="modal-content-1"></div>
+    <div id="modal-content-2"></div>
+
 
 <div id="root">
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
@@ -24,72 +28,34 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 
     <script type="text/babel">
-        var qt = 200;
-        var html = [];
-        for(var x=1;x<=qt;x++){
-            const idContent = "modal-content-"+x;
-            const dataModal = "modal-"+x;
+        const contentSub = [
+            <h2>Title SubModal 1</h2>,
+            <p>SubModal</p>,
+            <small>Rodapé submodal 1</small>
+        ];
+        const idSub = "modal-2";
 
-            html.push(
-                <div key={x}>
-                    <button type="button" data-modal={dataModal}>Open Modal {x}</button>
-                    <div id={idContent}/>
-                </div>
-            );
-        }
+        const content = [
+            <h2>Title 1</h2>,
+            <button type="button" data-modal="modal-2">Open SubModal</button>,
+            <small>Rodapé 1</small>
+        ];
+
+        const id = "modal-1";
         ReactDOM.render(
-            html,
-            document.getElementById('root')
+            <Modal
+                id={id}
+                content={content}
+            />,
+            document.getElementById('modal-content-1')
         );
-
-        for(var i=1;i<=qt;i++){
-            const content = [
-                <h2>Title {i}</h2>,
-                <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper lacinia nisi at tincidunt. Praesent eleifend nulla et aliquam hendrerit. Vivamus ultricies, sapien vitae eleifend fermentum, odio enim rutrum lorem, et dignissim velit felis in quam. Maecenas tristique sed tortor sed tempor. Aenean aliquet augue id elementum tincidunt. In et sagittis erat, non laoreet elit. Praesent id molestie elit. Pellentesque bibendum mi vel quam semper, at semper dolor mollis. Sed molestie sodales mi at fringilla. Nam vulputate, velit et scelerisque ornare, dolor lectus sodales ipsum, in porttitor erat mauris in nisi. Maecenas eu tristique elit. Quisque libero neque, rhoncus eget justo placerat, tempor condimentum eros. Morbi sed semper leo, eget cursus arcu. Vestibulum id felis accumsan ipsum facilisis ultricies. Praesent bibendum, felis sed varius pretium, augue purus volutpat magna, at blandit lorem dolor in dui.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                    <p>Integer in augue mollis, eleifend velit ut, cursus nibh. Morbi efficitur sapien imperdiet, condimentum tellus quis, scelerisque odio. Cras convallis ex at nisi condimentum facilisis. Sed sagittis et eros vitae efficitur. Sed at est gravida sem vehicula volutpat. In hac habitasse platea dictumst. Sed id massa ut turpis auctor commodo ut sed tortor. Duis egestas sapien vel enim aliquam eleifend. Nunc luctus lectus justo, viverra feugiat orci euismod in. Quisque dignissim semper scelerisque. Cras eu efficitur sem. Integer eu lectus sollicitudin, aliquam arcu vel, tempor est. Donec tincidunt augue varius nulla aliquet, auctor pellentesque dui pretium. Aliquam mollis, lacus ut efficitur dictum, ante neque porttitor magna, id laoreet purus enim ac libero.</p>
-                </div>,
-                <small>Rodapé {i}</small>
-            ];
-
-            const id = "modal-"+i;
-            ReactDOM.render(
-                <Modal
-                    id={id}
-                    size="4"
-                    content={content}
-                    borderRadius="8px"
-                    backgroudColorHeader=""
-                    textColorHeader=""
-                    backgroudColorBody=""
-                    textColorBody=""
-                    backgroudColorFooter=""
-                    textColorFooter=""
-                />,
-                document.getElementById('modal-content-'+i)
-            );
-        }
+        ReactDOM.render(
+            <Modal
+                id={idSub}
+                content={contentSub}
+            />,
+            document.getElementById('modal-content-2')
+        );
     </script>
 </div>
 
