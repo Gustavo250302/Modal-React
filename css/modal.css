@@ -11,7 +11,7 @@ html, body{
 
 .modal-modal {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background-color: rgba(0,0,0,0.6);
@@ -56,14 +56,14 @@ html, body{
     border-bottom: 1px solid rgba(103, 117, 240, 1);
 }
 .modal-modal > .overflow-modal > .container-modal > .body-modal {
-    max-height: 200px;
+    max-height: 400px;
     padding: 10px;
     font-size: 0.9em;
     background-color: #fff;
     color: #000;
 }
 .modal-modal > .overflow-modal > .container-modal > .footer-modal {
-    max-height: 100px;
+    max-height: 140px;
     padding: 10px;
     font-size: 0.9em;
     background-color: rgba(103, 117, 240, 0.9);

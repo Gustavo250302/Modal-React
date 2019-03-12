@@ -1,113 +1,84 @@
-class Modal {
-    constructor(obj, id_modal, ) {
-        this.obj = obj;
-        this.id_modal = id_modal;
-    }
+class Modal extends React.Component{
+    closeModal = () => {
+        $("#"+this.props.id).removeClass("show");
+        $('body').removeClass("overflow-hidden");
+    };
 
-    size(size = 3){
-        const s = ['s', 'm-s', 'm', 'm-l', 'l'];
-        this.size = s[size-1];
-    }
-
-    colorHeader(background = 'rgba(103, 117, 240, 1)', text = '#fff'){
-        this.textColorHeader = text;
-        this.borderColorHeader = background;
-
-        const transparencyBackgroundHeader = background.substring(background.length-2,background.length-1) -.1;
-        this.backgroudColorHeader = `${background.substring(0,background.length-2)}${transparencyBackgroundHeader})`;
-    }
-
-    colorBody(background = 'rgba(255, 255, 255, 1)', text = '#000'){
-        this.textColorBody = text;
-        this.backgroudColorBody = background;
-    }
-
-    colorFooter(background = 'rgba(103, 117, 240, 1)', text = '#fff'){
-        this.textColorFooter = text;
-        this.borderColorFooter = background;
-
-        const transparencyBackgroundFooter = background.substring(background.length-2,background.length-1) -.1;
-        this.backgroudColorFooter = `${background.substring(0,background.length-2)}${transparencyBackgroundFooter})`;
-    }
-
-    borderRadius(radius = '5px'){
-        this.borderRadius = radius;
-    }
-
-    divisions(division = ['h', 'b', 'f']){
-        this.division = division;
-    }
-
-    html(content = [<h2>header content</h2>, <p>body content</p>, <p>footer content</p>]){
-        var div = [];
-        for (var i=0;i<this.division.length;i++){
-            const part = this.division[i].replace('h', 'header')
-                .replace('b', 'body')
-                .replace('f', 'footer')+"-modal";
-            const closeModal = i === 0 ? <span className="close-modal"><i className="material-icons">close</i></span> : "" ;
-            div.push(
-                <div className={part}>
-                    {closeModal}
-                    {content[i]}
-                </div>
-            );
-        }
-        this.content = div;
-    }
-
-    create(){
-        const size = this.size !== "s" &&
-        this.size !== "m-s" &&
-        this.size !== "m" &&
-        this.size !== "m-l" &&
-        this.size !== "l" ? 'modal-modal modal-m' : "modal-modal modal-"+this.size;
-
-        var obj = this.obj;
-        var id_modal = this.id_modal;
-
-        ReactDOM.render(
-            <div id={this.id_modal} className={size}>
-                <div className="overflow-modal">
-                    <div className="container-modal">
-                        {this.content}
-                    </div>
-                </div>
-            </div>,
-            document.getElementById(obj)
-        );
-
-
-        $(`[data-modal="${this.id_modal}"]`).click( function () {
+    render(){
+        $(`[data-modal="${this.props.id}"]`).click( function () {
             var id = $(this).attr("data-modal");
             var el = document.getElementById(id);
             $(el).toggleClass("show");
             $('body').toggleClass("overflow-hidden");
         });
+        var background,
+            text;
 
-        $(`#${this.id_modal} .close-modal`).click( function () {
-            $(this).parent().parent().parent().parent().toggleClass("show");
-            $('body').toggleClass("overflow-hidden");
-        });
+        background = this.props.backgroudColorHeader === "" ? 'rgba(103, 117, 240, 1)' : this.props.backgroudColorHeader;
+        text = this.props.textColorHeader === "" ? '#fff' : this.props.textColorHeader;
+        const transparencyBackgroundHeader = background.substring(background.length-2,background.length-1) -.1;
+        const backgroundColorHeader = `${background.substring(0,background.length-2)}${transparencyBackgroundHeader})`;
+        const styleColorHeader = {
+            backgroundColor: backgroundColorHeader,
+            color: text,
+            borderBottom: `1px solid ${background}`
+        };
 
-        $(`#${this.id_modal} > .overflow-modal > .container-modal`).css({
-            'border-radius': `${this.borderRadius}`
-        });
+        background = this.props.backgroudColorBody === "" ? 'rgba(255, 255, 255, 1)' : this.props.backgroudColorBody;
+        text = this.props.textColorBody === "" ? '#000' : this.props.textColorBody;
+        const styleColorBody = {
+            backgroundColor: background,
+            color: text
+        };
 
-        $(`#${this.id_modal} > .overflow-modal > .container-modal > .header-modal`).css({
-            'background-color': `${this.backgroudColorHeader}`,
-            'color': `${this.textColorHeader}`,
-            'border-bottom': `1px solid ${this.borderColorHeader}`
-        });
+        background = this.props.backgroudColorFooter === "" ? 'rgba(103, 117, 240, 1)' : this.props.backgroudColorFooter;
+        text = this.props.textColorFooter === "" ? '#fff' : this.props.textColorFooter;
+        const transparencyBackgroundFooter = background.substring(background.length-2,background.length-1) -.1;
+        const backgroundColorFooter = `${background.substring(0,background.length-2)}${transparencyBackgroundFooter})`;
+        const styleColorFooter = {
+            backgroundColor: backgroundColorFooter,
+            color: text,
+            borderTop: `1px solid ${background}`
+        };
 
-        $(`#${this.id_modal} > .overflow-modal > .container-modal > .body-modal`).css({
-            'background-color': `${this.backgroudColorBody}`,
-            'color': `${this.textColorBody}`
-        });
+        const styleBorderRadius = {borderRadius: this.props.borderRadius === "" ? '5px' : this.props.borderRadius};
 
-        $(`#${this.id_modal} > .overflow-modal > .container-modal > .footer-modal`).css({
-            'background-color': `${this.backgroudColorFooter}`,
-            'color': `${this.textColorFooter}`,
-            'border-top': `1px solid ${this.borderColorFooter}`
-        });
+        const eDivision = ['h', 'b', 'f'];
+        const eContent = this.props.content === "" ? [<h2>header content</h2>, <p>body content</p>, <p>footer content</p>] : this.props.content;
+        var div = [];
+        for (var i=0;i<eContent.length;i++){
+            const part = eDivision[i].replace('h', 'header').replace('b', 'body').replace('f', 'footer')+"-modal";
+            const closeModal = i === 0 ? <span onClick={this.closeModal} className="close-modal"><i className="material-icons">close</i></span> : "" ;
+
+            var style;
+            if (i===0)
+                style = styleColorHeader;
+            else if (i===1)
+                style = styleColorBody;
+            else
+                style = styleColorFooter;
+            div.push(<div key={i+1} className={part} style={style}>
+                       {closeModal}
+                       {eContent[i]}
+                     </div>);
+        }
+
+        const eSize = this.props.size === "" ? 3 : this.props.size;
+        const s = ['s', 'm-s', 'm', 'm-l', 'l'];
+        const size = s[eSize-1];
+
+        const classModal = (size !== "s" &&
+            size !== "m-s" &&
+            size !== "m" &&
+            size !== "m-l" &&
+            size !== "l") ? 'modal-modal modal-m' : "modal-modal modal-"+size;
+
+        return <div id={this.props.id} className={classModal}>
+                   <div className="overflow-modal">
+                       <div className="container-modal" style={styleBorderRadius}>
+                           {div}
+                       </div>
+                   </div>
+               </div>;
     }
 }
