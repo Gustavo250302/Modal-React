@@ -21,8 +21,7 @@
 </div>
 
     <button type="button" data-modal="modal-1">Open Modal</button>
-    <div id="modal-content-1"></div>
-    <div id="modal-content-2"></div>
+    <div id="modal-content"></div>
 
     <script type="text/babel">
         const contentSub = [
@@ -34,24 +33,17 @@
 
         const content = [
             <h2>Title 1</h2>,
-            <button type="button" data-modal="modal-2">Open SubModal</button>,
+            <section>
+                <button type="button" data-modal="modal-2">Open SubModal</button>
+                <Modal id={idSub} content={contentSub}/>
+            </section>,
             <small>Rodapé 1</small>
         ];
 
         const id = "modal-1";
         ReactDOM.render(
-            <Modal
-                id={id}
-                content={content}
-            />,
-            document.getElementById('modal-content-1')
-        );
-        ReactDOM.render(
-            <Modal
-                id={idSub}
-                content={contentSub}
-            />,
-            document.getElementById('modal-content-2')
+            <Modal id={id} content={content}/>,
+            document.getElementById('modal-content')
         );
     </script>
 

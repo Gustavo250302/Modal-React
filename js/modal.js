@@ -20,21 +20,18 @@ class Modal extends React.Component{
     }
 
     closeModal = () => {
-        $("#"+this.id).removeClass("show");
+        $('#'+this.id).removeClass("show");
         $('body').removeClass("overflow-hidden");
-
-        console.log('lastModalClose', this.id);
     };
 
     render(){
-        $(`[data-modal="${this.id}"]`).click( function () {
+        $(`[data-modal]`).click( function () {
             var id = $(this).attr("data-modal");
             var el = document.getElementById(id);
             $(el).addClass("show");
             $('body').addClass("overflow-hidden");
-
-            console.log('lastModalOpen', id);
         });
+
         var background,
             text;
 
