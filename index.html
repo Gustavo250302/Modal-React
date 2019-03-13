@@ -8,6 +8,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
     <script src="js/modal.js" type="text/babel"></script>
     <link rel="stylesheet" href="css/modal.css">
 </head>
@@ -20,12 +23,6 @@
     <button type="button" data-modal="modal-1">Open Modal</button>
     <div id="modal-content-1"></div>
     <div id="modal-content-2"></div>
-
-
-<div id="root">
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 
     <script type="text/babel">
         const contentSub = [
@@ -57,8 +54,6 @@
             document.getElementById('modal-content-2')
         );
     </script>
-</div>
-
 
 </body>
 </html>
