@@ -3,15 +3,20 @@ class Modal extends React.Component{
         super(props);
 
         this.id = this.props.id;
+        this.color = this.props.color === undefined ? [] :
+            this.props.color;
 
-        this.backgroudColorHeader = this.props.backgroudColorHeader === undefined ? 'rgba(103, 117, 240, 1)' : this.props.backgroudColorHeader;
-        this.textColorHeader = this.props.textColorHeader === undefined ? '#fff' : this.props.textColorHeader;
+        if (this.color[0] === undefined) this.color[0] = [undefined, undefined];
+        this.color[0][0] = this.color[0][0] === undefined ? 'rgba(103, 117, 240, 1)' : this.color[0][0];
+        this.color[0][1] = this.color[0][1] === undefined ? '#fff' : this.color[0][1];
 
-        this.backgroudColorBody = this.props.backgroudColorBody === undefined ? 'rgba(255, 255, 255, 1)' : this.props.backgroudColorBody;
-        this.textColorBody = this.props.textColorBody === undefined ? '#000' : this.props.textColorBody;
+        if (this.color[1] === undefined) this.color[1] = [undefined, undefined];
+        this.color[1][0] = this.color[1][0] === undefined ? 'rgba(255, 255, 255, 1)' : this.color[1][0];
+        this.color[1][1] = this.color[1][1] === undefined ? '#000' : this.color[1][1];
 
-        this.backgroudColorFooter = this.props.backgroudColorFooter === undefined ? 'rgba(103, 117, 240, 1)' : this.props.backgroudColorFooter;
-        this.textColorFooter = this.props.textColorFooter === undefined ? '#fff' : this.props.textColorFooter;
+        if (this.color[2] === undefined) this.color[2] = [undefined, undefined];
+        this.color[2][0] = this.color[2][0] === undefined ? 'rgba(103, 117, 240, 1)' : this.color[2][0];
+        this.color[2][1] = this.color[2][1] === undefined ? '#fff' : this.color[2][1];
 
         this.borderRadius = this.props.borderRadius === undefined ? '8px' : this.props.borderRadius;
 
@@ -19,63 +24,42 @@ class Modal extends React.Component{
         this.size = this.props.size === undefined ? 3 : this.props.size;
     }
 
-    closeModal = () => {
-        $('#'+this.id).removeClass("show");
-        $('body').removeClass("overflow-hidden");
-    };
-
     render(){
-        $(`[data-modal]`).click( function () {
-            var id = $(this).attr("data-modal");
-            var el = document.getElementById(id);
-            $(el).addClass("show");
-            $('body').addClass("overflow-hidden");
-        });
-
         var background,
-            text;
+            text,
+            transparencyBackground,
+            backgroundColor,
+            styleColor = [];
+        const eDivision = ['h', 'b', 'f'];
 
-        background = this.backgroudColorHeader;
-        text = this.textColorHeader;
-        const transparencyBackgroundHeader = background.substring(background.length-2,background.length-1) -.1;
-        const backgroundColorHeader = `${background.substring(0,background.length-2)}${transparencyBackgroundHeader})`;
-        const styleColorHeader = {
-            backgroundColor: backgroundColorHeader,
-            color: text,
-            borderBottom: `1px solid ${background}`
-        };
-
-        background = this.backgroudColorBody;
-        text = this.textColorBody;
-        const styleColorBody = {
-            backgroundColor: background,
-            color: text
-        };
-
-        background = this.backgroudColorFooter;
-        text = this.textColorFooter;
-        const transparencyBackgroundFooter = background.substring(background.length-2,background.length-1) -.1;
-        const backgroundColorFooter = `${background.substring(0,background.length-2)}${transparencyBackgroundFooter})`;
-        const styleColorFooter = {
-            backgroundColor: backgroundColorFooter,
-            color: text,
-            borderTop: `1px solid ${background}`
-        };
+        for (i=0;i<this.content.length;i++){
+            background = this.color[i][0];
+            text = this.color[i][1];
+            if (eDivision[i] === 'h' || eDivision[i] === 'f'){
+                transparencyBackground = background.substring(background.length-2,background.length-1) -.1;
+                backgroundColor = `${background.substring(0,background.length-2)}${transparencyBackground})`;
+                styleColor.push({
+                    backgroundColor: backgroundColor,
+                    color: text,
+                    borderBottom: `1px solid ${background}`
+                });
+            } else if (eDivision[i] === 'b'){
+                styleColor.push({
+                    backgroundColor: background,
+                    color: text
+                });
+            }
+        }
 
         const styleBorderRadius = {borderRadius: this.borderRadius};
 
-        const eDivision = ['h', 'b', 'f'];
         const eContent = this.content;
         var div = [];
         for (var i=0;i<eContent.length;i++){
             const part = eDivision[i].replace('h', 'header').replace('b', 'body').replace('f', 'footer')+"-modal";
-            const closeModal = i === 0 ? <span onClick={this.closeModal} className="close-modal"><i className="material-icons">close</i></span> : "" ;
+            const closeModal = i === 0 ? <span className="close-modal"><i className="material-icons">close</i></span> : "" ;
 
-            var style;
-            if (i===0) style = styleColorHeader;
-            else if (i===1) style = styleColorBody;
-            else style = styleColorFooter;
-            div.push(<div key={i+1} className={part} style={style}>
+            div.push(<div key={i+1} className={part} style={styleColor[i]}>
                        {closeModal}
                        {eContent[i]}
                      </div>);
@@ -91,12 +75,14 @@ class Modal extends React.Component{
             size !== "m-l" &&
             size !== "l") ? 'modal-modal modal-m' : "modal-modal modal-"+size;
 
-        return <div id={this.id} className={classModal}>
-                   <div className="overflow-modal">
-                       <div className="container-modal" style={styleBorderRadius}>
-                           {div}
-                       </div>
-                   </div>
-               </div>;
+        return (
+            <section id={this.id} className={classModal}>
+                <div className="overflow-modal">
+                    <div className="container-modal" style={styleBorderRadius}>
+                        {div}
+                    </div>
+                </div>
+            </section>
+        );
     }
 }
