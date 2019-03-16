@@ -2,12 +2,13 @@
 
 html, body{
     width: 100%;
+    height: 200%;
     padding: 0;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
 }
 
-.overflow-hidden{overflow: hidden}
+.overflow-hidden{overflow: hidden !important;}
 
 .modal-modal {
     display: none;

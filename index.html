@@ -5,14 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Modal</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- for more information, visit https://github.com/Gustavo250302/Modal/blob/master/index.html -->
+
+    <!--required links-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-    <script src="js/modal.js" type="text/babel"></script>
-    <link rel="stylesheet" href="css/modal.css">
+    <script type="text/babel" src="https://bgninfo.com/library/modal-react/js/modal.js"></script>
+    <link rel="stylesheet" href="https://bgninfo.com/library/modal-react/css/modal.css">
+    <!--/required links-->
 </head>
 <body>
 
@@ -20,32 +25,82 @@
     <h1>Modal</h1>
 </div>
 
-    <button type="button" data-modal="modal-1">Open Modal</button>
-    <div id="modal-content"></div>
-
+<div id="modal-content">
+    loading...
     <script type="text/babel">
-        const contentSub = [
-            <h2>Title SubModal 1</h2>,
-            <p>SubModal</p>,
-            <small>Rodapé submodal 1</small>
-        ];
-        const idSub = "modal-2";
-
+        const idSub = "submodal";
+        const obj = "modal-content";
+        const id = "modal";
         const content = [
-            <h2>Title 1</h2>,
-            <section>
-                <button type="button" data-modal="modal-2">Open SubModal</button>
-                <Modal id={idSub} content={contentSub}/>
-            </section>,
-            <small>Rodapé 1</small>
+            <h2>Title Modal</h2>,
+            <div>
+                <button data-modal={idSub}>Open SubModal</button>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+            </div>,
+            <small>Footer Modal</small>
+        ];
+        const size = 4;
+        const color = [
+            /*header(undefined to default)*/ undefined,
+            /*body*/                         [/*background in rgba*/                        'rgba(255, 255, 255, 1)',  /*text color*/                        '#000'],
+            /*footer*/                       [/*background in rgba(undefined to default)*/  undefined,                 /*text color (undefined to default)*/ undefined]
         ];
 
-        const id = "modal-1";
         ReactDOM.render(
-            <Modal id={id} content={content}/>,
-            document.getElementById('modal-content')
+            <section>
+                <button data-modal={id}>Open Modal</button>
+                <Modal id={id} content={content} size={size} color={color}/>
+            </section>,
+            document.getElementById(obj)
         );
     </script>
+</div>
+<div id="submodal-content">
+    loading...
+    <script type="text/babel">
+        const objSub = "submodal-content";
+        const idSub = "submodal";
+        const contentSub = [
+            <h2>Title SubModal</h2>,
+            <div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
+            </div>
+        ];
+        const sizeSub = 2;
 
+        ReactDOM.render(
+            <section>
+                <button data-modal={idSub}>Open SubModal</button>
+                <Modal id={idSub} content={contentSub} size={sizeSub}/>
+            </section>,
+            document.getElementById(objSub)
+        );
+    </script>
+</div>
+
+<!--mandatory use of this link at the end of the code to call the modal events-->
+<script src="https://bgninfo.com/library/modal-react/js/e-modal.js" type="text/babel"></script>
 </body>
 </html>
