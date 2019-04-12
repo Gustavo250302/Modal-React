@@ -5,102 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Modal</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
     <!-- for more information, visit https://github.com/Gustavo250302/Modal/blob/master/index.html -->
 
     <!--required links-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-    <script type="text/babel" src="https://bgninfo.com/library/modal-react/js/modal.js"></script>
-    <link rel="stylesheet" href="https://bgninfo.com/library/modal-react/css/modal.css">
+    <script type="text/babel" src="js/modal.js"></script>
+    <link rel="stylesheet" href="css/modal.css">
     <!--/required links-->
 </head>
 <body>
 
-<div align="center">
+<div style="text-align: center">
     <h1>Modal</h1>
 </div>
 
 <div id="modal-content">
     loading...
     <script type="text/babel">
-        const idSub = "submodal";
-        const obj = "modal-content";
-        const id = "modal";
-        const content = [
-            <h2>Title Modal</h2>,
-            <div>
-                <button data-modal={idSub}>Open SubModal</button>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-            </div>,
-            <small>Footer Modal</small>
-        ];
-        const size = 4;
-        const color = [
-            /*header(undefined to default)*/ undefined,
-            /*body*/                         [/*background in rgba*/                        'rgba(255, 255, 255, 1)',  /*text color*/                        '#000'],
-            /*footer*/                       [/*background in rgba(undefined to default)*/  undefined,                 /*text color (undefined to default)*/ undefined]
-        ];
+        var textStyle = {
+            fontFamily: 'sans-serif'
+        };
 
         ReactDOM.render(
             <section>
-                <button data-modal={id}>Open Modal</button>
-                <Modal id={id} content={content} size={size} color={color}/>
+                <button type="button" data-modal="modal">Open Modal</button>
+
+                <Modal id='modal' size={3} style={textStyle}>
+                    <ModalHeader>
+                        <h2>Modal</h2>
+                    </ModalHeader>
+                    <ModalBody>
+                        <button type="button" data-modal="submodal">Open SubModal</button>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis placerat sapien sed eros auctor egestas at sed orci. In ipsum lacus, lobortis vel viverra sed, finibus sit amet tortor. Donec porttitor posuere magna, eleifend tristique orci interdum hendrerit. Aenean id ex at tellus tincidunt laoreet. Phasellus lacinia consectetur elit id vehicula. Donec non dolor quam. Maecenas ac aliquet dui.</p>
+
+                        <p>Praesent ultricies nunc justo, a tincidunt odio fringilla sit amet. Sed rhoncus vel diam at fringilla. Cras molestie euismod nunc, id placerat urna molestie eu. Nam a ipsum eget eros pharetra pretium. Nam id ipsum id lectus pretium consectetur. Nam iaculis orci sed tempus convallis. Cras semper purus non enim pulvinar dapibus. Maecenas at arcu sagittis, aliquam odio a, pulvinar turpis.</p>
+
+                        <p>Sed egestas, metus at volutpat congue, enim sem ultrices massa, quis vulputate nisi metus eu orci. Suspendisse potenti. Proin quis mi id felis semper lobortis. Nullam a interdum ipsum. Quisque arcu quam, ornare ac nulla sit amet, hendrerit viverra turpis. Quisque at risus massa. Proin vel commodo mi. Sed eget elementum ex, id congue risus. Vestibulum convallis, est non consectetur vestibulum, tellus tellus rhoncus lacus, pretium blandit erat lorem quis lorem. Fusce enim nulla, tincidunt eget aliquet ut, porta nec diam. Maecenas varius laoreet turpis nec sodales. Praesent ut nisl malesuada nisi condimentum efficitur ac quis ex. Sed vulputate, mi non convallis egestas, ipsum urna feugiat tellus, in ultricies metus tortor accumsan sem. Curabitur commodo vitae eros at mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+                        <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque eu ullamcorper ligula. Vivamus interdum posuere accumsan. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed consequat elementum purus. Sed nec ultrices ex. Aliquam magna justo, ultrices vitae eleifend vitae, tempor nec dolor. Suspendisse potenti. Praesent tempor ipsum vehicula, lacinia lorem et, feugiat risus. Nullam a nunc tempus, dictum nibh quis, sollicitudin neque. Vestibulum luctus tortor vitae neque laoreet auctor. Ut porta, nunc quis vestibulum efficitur, odio nulla porta nunc, sed laoreet augue enim vitae lectus. Donec pretium quam accumsan erat egestas, eget sagittis libero porttitor. Donec sit amet imperdiet mi, vitae ornare velit. Fusce ullamcorper lorem dignissim, pellentesque leo et, egestas nisl.</p>
+
+                        <p>Morbi maximus augue in turpis posuere, mollis ultricies metus vestibulum. Morbi placerat risus et venenatis mattis. Maecenas feugiat vestibulum augue eu molestie. Nulla scelerisque gravida molestie. Mauris commodo odio et velit imperdiet consectetur eget et dolor. Nunc sed placerat est. Sed pulvinar vestibulum diam nec ultrices. Pellentesque molestie lectus eu sem sagittis rutrum. Sed vel tortor tellus. Sed ullamcorper ligula quam, dignissim consectetur dolor euismod sit amet. Pellentesque ornare a dui id sollicitudin. Etiam porttitor lorem in velit auctor aliquam.</p>
+                    </ModalBody>
+                    <ModalFooter>
+                        <small>@2019 - todos os direitos reservados.</small>
+                    </ModalFooter>
+                </Modal>
+                <div id="submodal-content"/>
             </section>,
-            document.getElementById(obj)
+            document.getElementById('modal-content')
         );
-    </script>
-</div>
-<div id="submodal-content">
-    loading...
-    <script type="text/babel">
-        const objSub = "submodal-content";
-        const idSub = "submodal";
-        const contentSub = [
-            <h2>Title SubModal</h2>,
-            <div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tempus lectus. Vestibulum iaculis odio vitae lacus suscipit tempus. Fusce mollis porttitor est in placerat. Praesent at semper felis. Nam eu erat diam. Proin ullamcorper nisl id tortor dictum, non cursus diam tincidunt. Donec placerat nibh augue, ut semper dui egestas quis. Nam nec fringilla turpis, et venenatis sem. Nunc feugiat consequat blandit.</p>
-            </div>
-        ];
-        const sizeSub = 2;
 
         ReactDOM.render(
-            <section>
-                <button data-modal={idSub}>Open SubModal</button>
-                <Modal id={idSub} content={contentSub} size={sizeSub}/>
-            </section>,
-            document.getElementById(objSub)
+            <Modal id='submodal' size={2} style={textStyle}>
+                <ModalHeader>
+                    <h2>SubModal</h2>
+                </ModalHeader>
+                <ModalBody>
+                    <p>Lorem ipsum sit amet.</p>
+                </ModalBody>
+                <ModalFooter>
+                    <small>@2019 - todos os direitos reservados.</small>
+                </ModalFooter>
+            </Modal>,
+            document.getElementById('submodal-content')
         );
     </script>
 </div>
 
 <!--mandatory use of this link at the end of the code to call the modal events-->
-<script src="https://bgninfo.com/library/modal-react/js/e-modal.js" type="text/babel"></script>
+<script src="js/e-modal.js" type="text/babel"></script>
 </body>
 </html>

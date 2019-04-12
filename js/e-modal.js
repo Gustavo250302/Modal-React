@@ -1,4 +1,31 @@
 var historyModal = [];
+
+/*
+document.querySelector("[data-modal]").onclick = function() {
+    const id = this.getAttribute("data-modal");
+    const el = document.getElementById(id);
+    el.className += " show";
+    document.getElementsByTagName('body').className += " overflow-hidden";
+    historyModal.push(id);
+};
+
+document.querySelector('body').onkeydown = function(e) {
+    const code = e.which;
+    if(code === 27){
+        const el = historyModal[historyModal.length-1];
+        document.querySelector(`#${el} .close-modal`).onclick();
+    }
+};
+
+document.querySelector(".close-modal").onclick = function() {
+    document.getElementById(historyModal[historyModal.length-1]).classList.remove("show");
+    historyModal.splice(-1,1);
+    if(!document.querySelector('.modal-modal').classList.contains('show')){
+        document.querySelector('body').classList.remove("overflow-hidden");
+    }
+};
+*/
+
 $(`[data-modal]`).click( function () {
     var id = $(this).attr("data-modal");
     var el = document.getElementById(id);
